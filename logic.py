@@ -3,8 +3,8 @@
 # should be unit-testable.
 def make_empty_board():
 	return [['', '', ''],
-		    ['', '', ''], 
-		    ['', '', '']]
+		['', '', ''], 
+		['', '', '']]
 
 def input_move(board):
 		x = int(input("input row (0-2): "))

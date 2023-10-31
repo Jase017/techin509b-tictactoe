@@ -5,11 +5,11 @@ from logic import other_player
 
 if __name__ == '__main__':
     board = make_empty_board()
-    winner = ''
+    winner = 'None'
     player = 'X'
     for row in board:
          print(row)
-    while winner == '':
+    while winner == 'None':
         print('Next turn: ', player)
         x, y = input_move(board)
         board[x][y] = player

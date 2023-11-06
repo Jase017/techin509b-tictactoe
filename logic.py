@@ -50,7 +50,3 @@ def get_winner(board):
                 return ''
     print('Draw')
     return 'Draw'
-
-				return ''
-	print('Draw')
-	return 'Draw'

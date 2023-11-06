@@ -2,7 +2,12 @@ from logic import make_empty_board
 from logic import input_move
 from logic import get_winner
 from logic import other_player
+import logging
 
+logging.basicConfig(
+    filename='log/msg.log.',
+    level=logging.INFO
+)
 
 def play_game():
     board = make_empty_board()
@@ -20,7 +25,8 @@ def play_game():
         board[x][y] = player
         for row in board:
             print(row)
-        winner = get_winner(board)
+        winner = get_winner(board) 
+        logging.info('You win the game.')
         player = other_player(player)
 
 

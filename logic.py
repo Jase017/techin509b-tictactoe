@@ -16,7 +16,7 @@ def input_move(board):
             return 'q', 'q'
         try:
             x, y = map(int, move.split())
-            if 0 <= x <= 2 and 0 <= y <= 2 and board[x][y] == 'None':
+            if 0 <= x <= 2 and 0 <= y <= 2 and board[x][y] is None:
                 return x, y
             else:
                 print('Invalid input, please try again.')

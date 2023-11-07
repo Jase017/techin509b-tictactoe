@@ -2,9 +2,11 @@
 # or output happens here. The logic in this file
 # should be unit-testable.
 def make_empty_board():
-    return [['', '', ''],
-            ['', '', ''],
-            ['', '', '']]
+    return [
+        [None, None, None],
+        [None, None, None],
+        [None, None, None],
+    ]
 
 
 def input_move(board):
@@ -14,7 +16,7 @@ def input_move(board):
             return 'q', 'q'
         try:
             x, y = map(int, move.split())
-            if 0 <= x <= 2 and 0 <= y <= 2 and board[x][y] == '':
+            if 0 <= x <= 2 and 0 <= y <= 2 and board[x][y] == 'None':
                 return x, y
             else:
                 print('Invalid input, please try again.')
@@ -32,21 +34,21 @@ def other_player(now):
 
 def get_winner(board):
     for i in range(0, 3):
-        if board[i][0] != '' and board[i][0] == board[i][1] == board[i][2]:
+        if board[i][0] is not None and board[i][0] == board[i][1] == board[i][2]:
             print(board[i][0], ' Won')
             return board[i][0]
 
     for i in range(0, 3):
-        if board[0][i] != '' and board[0][i] == board[1][i] == board[2][i]:
+        if board[0][i] is not None and board[0][i] == board[1][i] == board[2][i]:
             print(board[0][i], ' Won')
             return board[0][i]
 
-    if board[1][1] != '' and (board[0][0] == board[1][1] == board[2][2] or board[2][0] == board[1][1] == board[0][2]):
+    if board[1][1] is not None and (board[0][0] == board[1][1] == board[2][2] or board[2][0] == board[1][1] == board[0][2]):
         print(board[1][1], ' Won')
         return board[1][1]
     for row in board:
         for col in row:
-            if col == '':
+            if col is None:
                 return ''
     print('Draw')
     return 'Draw'
